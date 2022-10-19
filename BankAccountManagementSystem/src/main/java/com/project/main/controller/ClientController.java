@@ -1,5 +1,6 @@
 package com.project.main.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +17,42 @@ import com.project.main.model.Client;
 
 @RestController
 public class ClientController {
-	@Autowired
-	ClientService clientService;
 
-	@GetMapping("/allClients")
-	private List<Client> getAllClient() {
-		return clientService.getAllClient();
+	@Autowired
+	ClientService clientService = new ClientService();
+
+	public ClientController() {
 	}
 
-	@GetMapping("/client/retrieve/{id}")
-	private Client getClient(@PathVariable("id") int id) {
+	@PostMapping("/addClient")
+	public String addClient(@RequestBody Client client) {
+		System.out.println("Controller Class addClient");
+		return clientService.insert(client);
+	}
+
+	@GetMapping("/retrieveClient/{id}")
+	public Client getClient(@PathVariable("id") int id) {
+		System.out.println("Controller Class getClient");
 		return clientService.getClientById(id);
 	}
 
-	@DeleteMapping("/client/delete/{id}")
-	private void deleteClient(@PathVariable("id") int id) {
+	@DeleteMapping("/deleteClient/{id}")
+	public void deleteClient(@PathVariable("id") int id) {
+		System.out.println("Controller Class deleteClient");
 		clientService.delete(id);
 	}
 
-	@PostMapping("/client/add")
-	private int addClient(@RequestBody Client client) {
-		clientService.saveOrUpdate(client);
-		return client.getId();
-	}
-
-	@PutMapping("/client/update")
-	private Client update(@RequestBody Client client) {
-		clientService.saveOrUpdate(client);
+	@PutMapping("/updateClient")
+	public Client updateClient(@RequestBody Client client) {
+		System.out.println("Controller Class updateClient");
+		clientService.update(client);
 		return client;
 	}
+
+	@GetMapping("/allClientList")
+	public ArrayList<Client> getAllClient() {
+		System.out.println("Controller Class getAllClient");
+		return clientService.getAllClient();
+	}
+	 
 }
