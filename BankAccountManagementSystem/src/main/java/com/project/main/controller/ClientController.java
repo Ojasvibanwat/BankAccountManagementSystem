@@ -39,7 +39,7 @@ public class ClientController {
 		try {
 			return new ResponseEntity(clientService.getClientById(id), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			return new ResponseEntity(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
@@ -81,7 +81,7 @@ public class ClientController {
 
 	@PutMapping("/client/{id}/withdraw")
 	public ResponseEntity<?> withdraw(@RequestParam int amount, @PathVariable("id") int id) {
-		System.out.println();
+		System.out.println("Controller Class withdraw");
 		try {
 			Client cl = clientService.getClientById(id);
 			if (amount <= cl.getOutstandingAmount()) {
@@ -90,6 +90,17 @@ public class ClientController {
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 			}
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@GetMapping("client/{id}/viewBalance")
+	public ResponseEntity<String> viewBalance(@PathVariable("id") int id) {
+		System.out.println("Controller Class viewBalance");
+		try {
+			Client cl = clientService.getClientById(id);
+			return new ResponseEntity(cl.getOutstandingAmount(), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
