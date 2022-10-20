@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.main.service.ClientService;
 import com.project.main.model.Client;
 
 @RestController
-@RequestMapping("/admin")
 public class ClientController {
 
 	@Autowired
@@ -50,11 +49,11 @@ public class ClientController {
 		clientService.delete(id);
 	}
 
-	@PutMapping("/updateClient")
+	@PutMapping("/updateClient/{id}")
 	public ResponseEntity<?> updateClient(@RequestBody Client client, @PathVariable("id") int id) {
 		System.out.println("Controller Class updateClient");
 		try {
-			Client existing = clientService.getClientById(id);
+			Client cl = clientService.getClientById(id);
 			clientService.update(client);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
@@ -68,4 +67,31 @@ public class ClientController {
 		return clientService.getAllClient();
 	}
 
+	@PutMapping("/client/{id}/deposit")
+	public ResponseEntity<?> deposit(@RequestParam int amount, @PathVariable("id") int id) {
+		System.out.println("Controller Class deposit");
+		try {
+			Client cl = clientService.getClientById(id);
+			cl.setOutstandingAmount(cl.getOutstandingAmount() + amount);
+			return new ResponseEntity<>(HttpStatus.OK);
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+
+	@PutMapping("/client/{id}/withdraw")
+	public ResponseEntity<?> withdraw(@RequestParam int amount, @PathVariable("id") int id) {
+		System.out.println();
+		try {
+			Client cl = clientService.getClientById(id);
+			if (amount <= cl.getOutstandingAmount()) {
+				cl.setOutstandingAmount(cl.getOutstandingAmount() - amount);
+				return new ResponseEntity<>(HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+			}
+		} catch (NoSuchElementException e) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
