@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import com.project.main.model.Client;
+
 @SpringBootApplication
 @EnableAutoConfiguration
 @EnableJpaRepositories("com.project.main.repository")
