@@ -1,5 +1,7 @@
 package com.project.main.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,13 +20,13 @@ public class Client {
 	@Column(name = "NAME")
 	private String name;
 	@Column(name = "ACCOUNT_NUMBER")
-	private String accountNumber;
+	private int accountNumber;
 	@Column(name = "BALANCE")
-	private String balance;
+	private int balance;
 	@Column(name = "OUTSTANDING_AMOUNT")
-	private String outstandingAmount;
+	private int outstandingAmount;
 	@Column(name = "DATE_OF_JOINING")
-	private String dateOfJoining;
+	private Date dateOfJoining;
 	@Column(name = "PASSWORD")
 	private String password;
 
@@ -32,8 +34,9 @@ public class Client {
 
 	}
 
-	public Client(String name, String accountNumber, String balance, String outstandingAmount, String dateOfJoining,
+	public Client(String name, int accountNumber, int balance, int outstandingAmount, Date dateOfJoining,
 			String password) {
+		super();
 		this.name = name;
 		this.accountNumber = accountNumber;
 		this.balance = balance;
@@ -50,19 +53,19 @@ public class Client {
 		return name;
 	}
 
-	public String getAccountNumber() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
 
-	public String getBalance() {
+	public int getBalance() {
 		return balance;
 	}
 
-	public String getOutstandingAmount() {
+	public int getOutstandingAmount() {
 		return outstandingAmount;
 	}
 
-	public String getDateOfJoining() {
+	public Date getDateOfJoining() {
 		return dateOfJoining;
 	}
 
@@ -74,19 +77,19 @@ public class Client {
 		this.name = name;
 	}
 
-	public void setAccountNumber(String accountNumber) {
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
-	public void setBalance(String balance) {
+	public void setBalance(int balance) {
 		this.balance = balance;
 	}
 
-	public void setOutstandingAmount(String outstandingAmount) {
+	public void setOutstandingAmount(int outstandingAmount) {
 		this.outstandingAmount = outstandingAmount;
 	}
 
-	public void setDateOfJoining(String dateOfJoining) {
+	public void setDateOfJoining(Date dateOfJoining) {
 		this.dateOfJoining = dateOfJoining;
 	}
 
@@ -94,10 +97,4 @@ public class Client {
 		this.password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "Client [id=" + id + ", name=" + name + ", accountNumber=" + accountNumber + ", balance=" + balance
-				+ ", outstandingAmount=" + outstandingAmount + ", dateOfJoining=" + dateOfJoining + ", password="
-				+ password + "]";
-	}
 }

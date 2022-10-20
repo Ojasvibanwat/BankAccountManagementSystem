@@ -3,11 +3,16 @@ package com.project.main.repository;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.project.main.model.Client;
 
-public class ClientRepositoryImpl {
-		
-	private ClientRepository clientRepository;
+@Repository
+public class ClientRepositoryImpl{
+	
+	@Autowired
+	ClientRepository clientRepository;
 
 	public String saveClient(Client client) {
 		System.out.println("ClientRepositoryImpl class saveClient");
@@ -31,13 +36,13 @@ public class ClientRepositoryImpl {
 		}
 	}
 
-	public String deleteById(int id) {
+	public String deleteUsingId(int id) {
 		System.out.println("ClientRepositoryImpl class deleteById");
 		clientRepository.deleteById(id);
 		return "Client deleted!";
 	}
 
-	public Client findById(int id) {
+	public Client findUsingId(int id) {
 		System.out.println("ClientRepositoryImpl class findById");
 		Client client = clientRepository.findById(id).get();
 		return client;

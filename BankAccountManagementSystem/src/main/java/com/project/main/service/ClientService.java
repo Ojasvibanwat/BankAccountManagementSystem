@@ -27,12 +27,12 @@ public class ClientService {
 
 	public Client getClientById(int id) {
 		System.out.println("Service Class getClientById");
-		return clientRepositoryImpl.findById(id);
+		return clientRepositoryImpl.findUsingId(id);
 	}
 
 	public String delete(int id) {
 		System.out.println("Service Class delete");
-		return clientRepositoryImpl.deleteById(id);
+		return clientRepositoryImpl.deleteUsingId(id);
 	}
 
 	public ArrayList<Client> getAllClient() {
