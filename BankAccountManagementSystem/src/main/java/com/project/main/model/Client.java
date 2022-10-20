@@ -15,12 +15,25 @@ public class Client {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
+
+	@Column(name="Name")
 	private String name;
+
+	@Column(name="AccountNumber")
 	private int accountNumber;
+
+	@Column(name="Balance")
 	private int balance;
+
+	@Column(name="OutstandingAmount")
 	private int outstandingAmount;
+
+	@Column(name="DateOfJoining")
 	private Date dateOfJoining;
+
+	@Column(name="Password")
 	private String password;
 
 	public Client() {

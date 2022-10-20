@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.main.exception.ClientNotFoundException;
 import com.project.main.model.Client;
 import com.project.main.repository.ClientRepositoryImpl;
 
 @Service
+@Transactional
 public class ClientService {
 	
 	@Autowired
