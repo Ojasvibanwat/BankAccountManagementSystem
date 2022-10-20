@@ -67,25 +67,27 @@ public class ClientController {
 		return clientService.getAllClient();
 	}
 
-	@PutMapping("/client/{id}/deposit")
-	public ResponseEntity<?> deposit(@RequestParam int amount, @PathVariable("id") int id) {
+	@PutMapping("/client/{id}/deposit/{amount}")
+	public ResponseEntity<?> deposit(@PathVariable("id") int id, @PathVariable("amount") int amount) {
 		System.out.println("Controller Class deposit");
 		try {
 			Client cl = clientService.getClientById(id);
 			cl.setOutstandingAmount(cl.getOutstandingAmount() + amount);
+			clientService.update(cl);
 			return new ResponseEntity<>(HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@PutMapping("/client/{id}/withdraw")
-	public ResponseEntity<?> withdraw(@RequestParam int amount, @PathVariable("id") int id) {
+	@PutMapping("/client/{id}/withdraw/{amount}")
+	public ResponseEntity<?> withdraw(@PathVariable("id") int id, @PathVariable("amount") int amount) {
 		System.out.println("Controller Class withdraw");
 		try {
 			Client cl = clientService.getClientById(id);
 			if (amount <= cl.getOutstandingAmount()) {
 				cl.setOutstandingAmount(cl.getOutstandingAmount() - amount);
+				clientService.update(cl);
 				return new ResponseEntity<>(HttpStatus.OK);
 			} else {
 				return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
