@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.context.annotation.Lazy;
 
 import com.project.main.model.Client;
 
-@Repository
-public class ClientRepositoryImpl{
-	
+public class ClientRepositoryImpl {
+
 	@Autowired
+	@Lazy(true)
 	ClientRepository clientRepository;
 
 	public String saveClient(Client client) {
