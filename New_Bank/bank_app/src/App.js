@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
+import "react-datepicker/dist/react-datepicker";
+//npm install react-datepicker
 import { BrowserRouter as Router, Routes, Route}
     from 'react-router-dom';
     import Home from './pages';
