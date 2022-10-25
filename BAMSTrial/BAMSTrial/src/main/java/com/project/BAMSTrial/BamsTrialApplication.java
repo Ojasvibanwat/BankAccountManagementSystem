@@ -20,12 +20,12 @@ public class BamsTrialApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		Client client = new Client();
-//		client.setName("Adam");
-//		client.setAccountNumber(1);
-//		client.setBalance(10000);
-//		client.setOutstandingAmount(10000);
-//		client.setPassword("Adam@123");
-//		clientRepository.save(client);
+		Client client = new Client();
+		client.setName("Adam");
+		client.setAccountNumber(1);
+		client.setBalance(10000);
+		client.setOutstandingAmount(10000);
+		client.setPassword("Adam@123");
+		clientRepository.save(client);
 	}
 }
