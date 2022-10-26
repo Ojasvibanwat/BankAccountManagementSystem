@@ -8,6 +8,7 @@ import ClientDeposit from './components/ClientDeposit';
 import ClientViewBalance from './components/ClientViewBalance';
 import ClientWithdraw from './components/ClientWithdraw';
 import ClientViewDetails from './components/ClientViewDetails';
+import HomePage from './components/HomePage';
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         <HeaderComponent />
         <div className="container">
           <Routes>
-            <Route path="/" element={<ListClientComponent />}></Route>
+            <Route path="/" element={<HomePage />}></Route>
             <Route path="/clients" element={<ListClientComponent />}></Route>
             <Route path="/createClient" element={<CreateClientComponent />}></Route>
             <Route path="/updateClient/:id" element={<CreateClientComponent />}></Route>
@@ -25,6 +26,7 @@ function App() {
             <Route path="viewBalance/:id" element={<ClientViewBalance />}></Route>
             <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
             <Route path="/viewDetails/:id" element={<ClientViewDetails />}></Route>
+
           </Routes>
         </div>
         <FooterComponent />
