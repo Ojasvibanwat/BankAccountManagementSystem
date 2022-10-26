@@ -15,7 +15,8 @@ const ClientWithdraw = () => {
         ClientService.withdraw(id, withdrawAmount).then((response) => {
             navigate(`/viewDetails/${id}`)
         }).catch(error => {
-            this.setState({errorMessage: error.message})})
+            this.setState({ errorMessage: error.message })
+        })
 
     }
 
@@ -54,9 +55,11 @@ const ClientWithdraw = () => {
                                     >
                                     </input>
                                 </div>
+                                <table>
+                                    <th><button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button></th>
+                                    <th><Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link></th>
+                                </table>
 
-                                <button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button>
-                                <Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link>
                             </form>
 
                         </div>

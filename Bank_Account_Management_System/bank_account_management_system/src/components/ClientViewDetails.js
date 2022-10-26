@@ -74,10 +74,26 @@ const ClientViewDetails = () => {
                                     <label className="form-label"> Outstanding Amount :</label>
                                     <div>{outstandingAmount}</div>
                                 </div>
-                                <Link to={`/deposit/${id}`} className="btn btn-success">Deposit</Link>
-                                <Link to={`/withdraw/${id}`} className="btn btn-danger">Withdraw</Link>
 
-                                <Link to="/clients" className="btn btn-info">Admin Home</Link>
+                                <table>
+                                    <th>
+                                    <Link to={`/deposit/${id}`} className="btn btn-success">Deposit</Link>
+
+                                    </th>
+                                    <th>
+                                    <Link to={`/withdraw/${id}`} className="btn btn-danger">Withdraw</Link>
+
+                                    </th>
+
+                                    <th>
+                                    <Link to="/clientHome" className="btn btn-info">Client Home</Link>
+
+                                    </th>
+                                </table>
+                               
+                               
+
+                                
                             </form>
 
                         </div>

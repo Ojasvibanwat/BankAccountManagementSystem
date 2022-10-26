@@ -21,6 +21,7 @@ const ListClientComponent = () => {
     }
 
 
+
     const deleteClient = (clientId) => {
         ClientService.deleteClient(clientId).then((response) => {
             getAllClients();
@@ -37,7 +38,7 @@ const ListClientComponent = () => {
             <h2 className="text-center"> Client List</h2>
             <Link to="/createClient" className="btn btn-success mb-2">Create Client</Link>
             <table className="table table-bordered table-striped">
-                <thead>
+                <thead className="text-center">
                     <th> Client Id </th>
                     <th> Client Name </th>
                     <th> Client Account Number </th>
@@ -58,10 +59,20 @@ const ListClientComponent = () => {
                                     <td> {client.balance} </td>
                                     <td> {client.outstandingAmount} </td>
                                     <td> {client.dateOfJoining} </td>
-                                    <td> {client.password} </td>
+                                    <td> ******* </td>
                                     <td>
-                                        <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
-                                        <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
+                                        <table>
+                                            <th>
+                                            <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
+                                            </th>
+
+                                            <th>
+                                            <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
+
+                                            </th>
+                                        </table>
+                                        
+                                        
                                     </td>
                                 </tr>
                         )

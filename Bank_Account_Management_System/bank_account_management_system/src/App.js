@@ -9,7 +9,7 @@ import ClientViewBalance from './components/ClientViewBalance';
 import ClientWithdraw from './components/ClientWithdraw';
 import ClientViewDetails from './components/ClientViewDetails';
 import Home from './components/Home';
-
+import ClientHome from './components/ClientHome';
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
             <Route path="viewBalance/:id" element={<ClientViewBalance />}></Route>
             <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
             <Route path="/viewDetails/:id" element={<ClientViewDetails />}></Route>
+            <Route path="/clientHome" element={<ClientHome />}></Route>
 
           </Routes>
         </div>

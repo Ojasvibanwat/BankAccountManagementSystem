@@ -133,38 +133,46 @@ const CreateClientComponent = () => {
                                     </input>
                                 </div>
 
-                                <div className = "form-group mb-2">
-                                    <label className = "form-label"> Date of Joining :</label>
-                                    
-                                   
-                                    <DatePicker  
-                                        selected={ dateOfJoining }  
-                                        onChange={(date)=>setDateOfJoining(date)}  
-                                        name="dateOfJoining"  
-                                        dateFormat="dd/MM/yyyy" 
-                                        maxDate={new Date()} 
-                                        filterDate={date=>date.getDay()!==6&&date.getDay()!==0}
-                                        isClearable
-                                        showYearDropdown
-                                        scrollableMonthYearDropdown
-                                     />  
+                                <div className="form-group mb-2">
+                                    <label className="form-label"> Date of Joining :</label>
+                                    <input
+                                        type="text"
+                                        placeholder="yyyy/mm/dd"
+                                        name="dateOfJoining"
+                                        className="form-control"
+                                        value={dateOfJoining}
+                                        onChange={(c) => setDateOfJoining(c.target.value)}
+                                    >
+                                    </input>
                                 </div>
 
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Password :</label>
                                     <input
                                         type="text"
-                                        placeholder="Enter password"
+                                        placeholder="Enter pwd"
                                         name="password"
                                         className="form-control"
                                         value={password}
                                         onChange={(c) => setPassword(c.target.value)}
+                                        
                                     >
                                     </input>
                                 </div>
 
-                                <button className="btn btn-success" onClick={(c) => saveOrUpdateClient(c)}>Submit</button>
-                                <Link to="/clients" className="btn btn-danger">Cancel</Link>
+
+                                <table>
+                                    <th>
+                                    <button className="btn btn-success" onClick={(c) => saveOrUpdateClient(c)}>Submit</button>
+                                    </th>
+                                    
+                                    <th margin-right="50px">
+                                    <Link to="/clients" className="btn btn-danger">Cancel</Link>
+                                    </th>
+
+                                </table>
+                            
+                        
                             </form>
 
                         </div>

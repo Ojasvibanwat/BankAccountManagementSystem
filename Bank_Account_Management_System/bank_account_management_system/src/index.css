@@ -8,7 +8,6 @@ body {
 }
 
 
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -22,18 +21,8 @@ margin-left: 100px;
 padding: 10px;
 }
 
-
-
-link{
-
-
-
-}
-
-
-
-.admin{
-  background-color: palegreen; /* Green */
+.submit{
+  background-color: green; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -41,12 +30,29 @@ link{
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
+  margin-left: 120px;
+
+}
+.navLink{
+margin-right: 30px;
+}
+.admin{
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin-left: 373px;
+  
 }
 
 
 
 .client{
-  background-color: Red; /* Red */
+  background-color: blue; /* Red */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -54,7 +60,11 @@ link{
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
+  margin-left: 375px;
+ 
   
   
 
 }
+
+
