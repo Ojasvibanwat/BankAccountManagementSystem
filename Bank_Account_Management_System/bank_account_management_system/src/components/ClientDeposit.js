@@ -4,7 +4,7 @@ import ClientService from '../services/ClientService'
 
 const ClientDeposit = () => {
     
-    const [outstandingAmount] = useState('')
+    const [outstandingAmount, setOutstandingAmount] = useState('')
     const [depositAmount, setDepositAmount] = useState('')
     const navigate = useNavigate();
     const { id } = useParams();
@@ -22,6 +22,7 @@ const ClientDeposit = () => {
 
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
+            setOutstandingAmount(response.data.outstandingAmount)
             outstandingAmount = response.data.outstandingAmount;
         }).catch(error => {
             console.log(error)

@@ -4,7 +4,7 @@ import ClientService from '../services/ClientService'
 
 const ClientWithdraw = () => {
 
-    const [outstandingAmount] = useState('')
+    const [outstandingAmount, setOutstandingAmount] = useState('')
     const [withdrawAmount, setWithdrawAmount] = useState('')
     const navigate = useNavigate();
     const { id } = useParams();
@@ -15,13 +15,13 @@ const ClientWithdraw = () => {
         ClientService.withdraw(id, withdrawAmount).then((response) => {
             navigate(`/viewDetails/${id}`)
         }).catch(error => {
-            console.log(error)
-        })
+            this.setState({errorMessage: error.message})})
 
     }
 
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
+            setOutstandingAmount(response.data.outstandingAmount)
             outstandingAmount = response.data.outstandingAmount;
         }).catch(error => {
             console.log(error)

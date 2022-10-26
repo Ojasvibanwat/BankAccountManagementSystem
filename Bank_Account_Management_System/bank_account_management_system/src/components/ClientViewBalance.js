@@ -3,14 +3,12 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClientService from '../services/ClientService'
 
 const ClientViewBalance = () => {
-    console.log("In create cient component")
     const [name, setName] = useState('')
     const [accountNumber, setAccountNumber] = useState('')
     const [balance, setBalance] = useState('')
     const [outstandingAmount, setOutstandingAmount] = useState('')
     const [dateOfJoining, setDateOfJoining] = useState('')
     const [password, setPassword] = useState('')
-   
     const navigate = useNavigate();
     const { id } = useParams();
     ClientService.getClientById(id).then((response) => {
@@ -68,7 +66,7 @@ const ClientViewBalance = () => {
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                         <h2 className="text-center">  Client Deposit </h2>
+                         <h2 className="text-center">  Client Balance </h2>
 
                         <div className="card-body">
                             <form>

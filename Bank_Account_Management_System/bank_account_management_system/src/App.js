@@ -24,7 +24,7 @@ function App() {
             <Route path="deposit/:id" element={<ClientDeposit />}></Route>
             <Route path="viewBalance/:id" element={<ClientViewBalance />}></Route>
             <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
-
+            <Route path="/viewDetails/:id" element={<ClientViewDetails />}></Route>
           </Routes>
         </div>
         <FooterComponent />
