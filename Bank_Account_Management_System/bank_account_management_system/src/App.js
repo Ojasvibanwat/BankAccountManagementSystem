@@ -8,7 +8,7 @@ import ClientDeposit from './components/ClientDeposit';
 import ClientViewBalance from './components/ClientViewBalance';
 import ClientWithdraw from './components/ClientWithdraw';
 import ClientViewDetails from './components/ClientViewDetails';
-import HomePage from './components/HomePage';
+import Home from './components/Home';
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
         <HeaderComponent />
         <div className="container">
           <Routes>
-            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/" element={<Home />}></Route>
             <Route path="/clients" element={<ListClientComponent />}></Route>
             <Route path="/createClient" element={<CreateClientComponent />}></Route>
             <Route path="/updateClient/:id" element={<CreateClientComponent />}></Route>
