@@ -23,6 +23,18 @@ class ClientService {
     deleteClient(clientId) {
         return axios.delete(CLIENT_BASE_URL + '/deleteClient/' + clientId);
     }
+    
+    viewBalance(clientId, client) {
+        return axios.get(CLIENT_BASE_URL + '/viewBalance/' + clientId, client);
+    }
+
+    deposit(clientId, amount) {
+        return axios.put(CLIENT_BASE_URL + '/deposit/' + clientId + '/'+ amount);
+    }
+
+    withdraw(clientId, amount) {
+        return axios.put(CLIENT_BASE_URL + '/withdraw/' + clientId + '/'+ amount);
+    }
 
 }
 

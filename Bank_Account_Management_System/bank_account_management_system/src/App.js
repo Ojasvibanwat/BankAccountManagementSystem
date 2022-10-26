@@ -4,6 +4,10 @@ import FooterComponent from './components/FooterComponent';
 import HeaderComponent from './components/HeaderComponent';
 import ListClientComponent from './components/ListClientComponent';
 import CreateClientComponent from './components/CreateClientComponent';
+import ClientDeposit from './components/ClientDeposit';
+import ClientViewBalance from './components/ClientViewBalance';
+import ClientWithdraw from './components/ClientWithdraw';
+
 
 function App() {
   return (
@@ -16,6 +20,9 @@ function App() {
             <Route path="/clients" element={<ListClientComponent />}></Route>
             <Route path="/createClient" element={<CreateClientComponent />}></Route>
             <Route path="/updateClient/:id" element={<CreateClientComponent />}></Route>
+            <Route path="deposit/:id" element={<ClientDeposit />}></Route>
+            <Route path="viewBalance/:id" element={<ClientViewBalance />}></Route>
+            <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
 
           </Routes>
         </div>
