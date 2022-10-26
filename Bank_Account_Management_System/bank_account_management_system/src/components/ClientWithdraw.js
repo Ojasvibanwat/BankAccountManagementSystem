@@ -56,7 +56,7 @@ const ClientWithdraw = () => {
                                 </div>
 
                                 <button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button>
-                                <Link to="/clients" className="btn btn-danger">Cancel</Link>
+                                <Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link>
                             </form>
 
                         </div>

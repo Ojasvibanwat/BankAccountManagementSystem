@@ -57,7 +57,7 @@ const ListClientComponent = () => {
                                     <td> {client.accountNumber} </td>
                                     <td> {client.balance} </td>
                                     <td> {client.outstandingAmount} </td>
-                                    <td> {client.datOfJoining} </td>
+                                    <td> {client.dateOfJoining} </td>
                                     <td> {client.password} </td>
                                     <td>
                                         <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
