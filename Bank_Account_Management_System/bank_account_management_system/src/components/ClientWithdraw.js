@@ -2,13 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClientService from '../services/ClientService'
 
-const ClientWithdraw= () => {
-    const [name, setName] = useState('')
-    const [accountNumber, setAccountNumber] = useState('')
-    const [balance, setBalance] = useState('')
-    const [outstandingAmount, setOutstandingAmount] = useState('')
-    const [dateOfJoining, setDateOfJoining] = useState('')
-    const [password, setPassword] = useState('')
+const ClientWithdraw = () => {
+
+    const [outstandingAmount] = useState('')
     const [withdrawAmount, setWithdrawAmount] = useState('')
     const navigate = useNavigate();
     const { id } = useParams();
@@ -16,11 +12,8 @@ const ClientWithdraw= () => {
     const withdrawClient = (c) => {
         c.preventDefault();
 
-        const client = { name, accountNumber, balance, outstandingAmount, dateOfJoining, password }
-
-
         ClientService.withdraw(id, withdrawAmount).then((response) => {
-            navigate(`/viewBalance/${id}`)
+            navigate(`/viewDetails/${id}`)
         }).catch(error => {
             console.log(error)
         })
@@ -29,12 +22,6 @@ const ClientWithdraw= () => {
 
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
-            setName(response.data.name)
-            setAccountNumber(response.data.accountNumber)
-            setBalance(response.data.balance)
-            setOutstandingAmount(response.data.outstandingAmount)
-            setDateOfJoining(response.data.dateOfJoining)
-            setPassword(response.data.password)
             outstandingAmount = response.data.outstandingAmount;
         }).catch(error => {
             console.log(error)

@@ -5,9 +5,10 @@ const HeaderComponent = () => {
         <div>
             <header>
                 <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div>
+                    <div className="mx-auto">
+                        <br/>
                         <a href="https://github.com/Ojasvibanwat/BankAccountManagementSystem" className="navbar-brand">
-                            Bank of Silicon Valley (Trial)
+                            <h1 style={{fontFamily:"Cambria"}}><u>Bank of Silicon Valley</u></h1>
                         </a>
                     </div>
                 </nav>

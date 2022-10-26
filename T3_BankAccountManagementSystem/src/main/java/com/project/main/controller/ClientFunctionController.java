@@ -11,12 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.project.main.model.Client;
 import com.project.main.service.ClientFunctionService;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/bsv/clientFunction")
+@RequestMapping("/bsv")
 public class ClientFunctionController {
 
 	@Autowired
@@ -61,4 +62,3 @@ public class ClientFunctionController {
 		}
 	}
 }
-

@@ -1,7 +1,5 @@
 package com.project.main.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,38 +12,39 @@ import javax.persistence.Table;
 public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name ="Name")
+
+	@Column(name = "name")
 	private String name;
 
-	@Column(name ="AccountNumber")
-	private int accountNumber;
+	@Column(name = "account_number", unique = true)
+	private int account_number;
 
-	@Column(name ="Balance")
+	@Column(name = "balance")
 	private int balance;
 
-	@Column(name ="OutstandingAmount")
-	private int outstandingAmount;
+	@Column(name = "outstanding_amount")
+	private int outstanding_amount;
 
-	@Column(name ="DateOfJoining")
-	private Date dateOfJoining;
-	
-	@Column(name ="Password")
+	@Column(name = "date_of_joining")
+	private String date_of_joining;
+
+	@Column(name = "password")
 	private String password;
 
 	public Client() {
 
 	}
 
-	public Client(String name, int accountNumber, int balance, int outstandingAmount, Date dateOfJoining,
+	public Client(String name, int accountNumber, int balance, int outstandingAmount, String dateOfJoining,
 			String password) {
 		super();
 		this.name = name;
-		this.accountNumber = accountNumber;
+		this.account_number = accountNumber;
 		this.balance = balance;
-		this.outstandingAmount = outstandingAmount;
-		this.dateOfJoining = dateOfJoining;
+		this.outstanding_amount = outstandingAmount;
+		this.date_of_joining = dateOfJoining;
 		this.password = password;
 	}
 
@@ -58,7 +57,7 @@ public class Client {
 	}
 
 	public int getAccountNumber() {
-		return accountNumber;
+		return account_number;
 	}
 
 	public int getBalance() {
@@ -66,11 +65,11 @@ public class Client {
 	}
 
 	public int getOutstandingAmount() {
-		return outstandingAmount;
+		return outstanding_amount;
 	}
 
-	public Date getDateOfJoining() {
-		return dateOfJoining;
+	public String getDateOfJoining() {
+		return date_of_joining;
 	}
 
 	public String getPassword() {
@@ -86,7 +85,7 @@ public class Client {
 	}
 
 	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+		this.account_number = accountNumber;
 	}
 
 	public void setBalance(int balance) {
@@ -94,11 +93,11 @@ public class Client {
 	}
 
 	public void setOutstandingAmount(int outstandingAmount) {
-		this.outstandingAmount = outstandingAmount;
+		this.outstanding_amount = outstandingAmount;
 	}
 
-	public void setDateOfJoining(Date dateOfJoining) {
-		this.dateOfJoining = dateOfJoining;
+	public void setDateOfJoining(String dateOfJoining) {
+		this.date_of_joining = dateOfJoining;
 	}
 
 	public void setPassword(String password) {

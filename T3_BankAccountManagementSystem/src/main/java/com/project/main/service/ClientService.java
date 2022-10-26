@@ -50,7 +50,7 @@ public class ClientService {
 
 	public ResponseEntity<Client> updateClient(int id, Client client) throws ClientNotFoundException {
 		Client updateClient = clientRepository.findById(id)
-                .orElseThrow(() -> new ClientNotFoundException("Client not exist with id: " + id));
+				.orElseThrow(() -> new ClientNotFoundException("Client not exist with id: " + id));
 		try {
 			if (updateClient.getId() != 0) {
 				updateClient.setAccountNumber(client.getAccountNumber());

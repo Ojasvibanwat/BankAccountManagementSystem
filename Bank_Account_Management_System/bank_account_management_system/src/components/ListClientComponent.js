@@ -33,8 +33,9 @@ const ListClientComponent = () => {
 
     return (
         <div className="container">
-            <h2 className="text-center"> List Clients </h2>
-            <Link to="/createClient" className="btn btn-primary mb-2">Create Client</Link>
+            <br/>
+            <h2 className="text-center"> Client List</h2>
+            <Link to="/createClient" className="btn btn-success mb-2">Create Client</Link>
             <table className="table table-bordered table-striped">
                 <thead>
                     <th> Client Id </th>
@@ -59,7 +60,7 @@ const ListClientComponent = () => {
                                     <td> {client.datOfJoining} </td>
                                     <td> {client.password} </td>
                                     <td>
-                                        <Link className="btn btn-info" to={`/updateClient/${client.id}`} >Update</Link>
+                                        <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
                                         <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
                                     </td>
                                 </tr>

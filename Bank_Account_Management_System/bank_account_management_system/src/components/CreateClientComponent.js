@@ -53,7 +53,7 @@ const CreateClientComponent = () => {
             console.log(error)
         })
 
-    }, [])
+    }, [id])
 
     const title = () => {
 
