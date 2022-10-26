@@ -7,6 +7,7 @@ import CreateClientComponent from './components/CreateClientComponent';
 import ClientDeposit from './components/ClientDeposit';
 import ClientViewBalance from './components/ClientViewBalance';
 import ClientWithdraw from './components/ClientWithdraw';
+import ClientViewDetails from './components/ClientViewDetails';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="deposit/:id" element={<ClientDeposit />}></Route>
             <Route path="viewBalance/:id" element={<ClientViewBalance />}></Route>
             <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
+            <Route path="viewDetails/:id" element={<ClientViewDetails/>}></Route>
 
           </Routes>
         </div>

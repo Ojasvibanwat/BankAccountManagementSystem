@@ -20,7 +20,7 @@ const ClientWithdraw= () => {
 
 
         ClientService.withdraw(id, withdrawAmount).then((response) => {
-            navigate(`/viewBalance/${id}`)
+            navigate(`/viewDetails/${id}`)
         }).catch(error => {
             console.log(error)
         })
@@ -69,7 +69,7 @@ const ClientWithdraw= () => {
                                 </div>
 
                                 <button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button>
-                                <Link to="/clients" className="btn btn-danger">Cancel</Link>
+                                <Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link>
                             </form>
 
                         </div>

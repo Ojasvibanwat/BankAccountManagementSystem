@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClientService from '../services/ClientService'
+import DatePicker from 'react-datepicker';  
+   
+import "react-datepicker/dist/react-datepicker.css";  
+
 
 const CreateClientComponent = () => {
     console.log("In create cient component")
@@ -8,7 +12,7 @@ const CreateClientComponent = () => {
     const [accountNumber, setAccountNumber] = useState('')
     const [balance, setBalance] = useState('')
     const [outstandingAmount, setOutstandingAmount] = useState('')
-    const [dateOfJoining, setDateOfJoining] = useState('')
+    const [dateOfJoining,setDateOfJoining]=useState(new Date())
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
     const { id } = useParams();
@@ -120,13 +124,30 @@ const CreateClientComponent = () => {
                                     <label className="form-label"> Outstanding Amount :</label>
                                     <input
                                         type="int"
-                                        placeholder="Enter outstanding amount"
+                                        placeholder="Enter outstandingAmount"
                                         name="outstandingAmount"
                                         className="form-control"
                                         value={outstandingAmount}
                                         onChange={(c) => setOutstandingAmount(c.target.value)}
                                     >
                                     </input>
+                                </div>
+
+                                <div className = "form-group mb-2">
+                                    <label className = "form-label"> Date of Joining :</label>
+                                    
+                                   
+                                    <DatePicker  
+                                        selected={ dateOfJoining }  
+                                        onChange={(date)=>setDateOfJoining(date)}  
+                                        name="dateOfJoining"  
+                                        dateFormat="dd/MM/yyyy" 
+                                        maxDate={new Date()} 
+                                        filterDate={date=>date.getDay()!==6&&date.getDay()!==0}
+                                        isClearable
+                                        showYearDropdown
+                                        scrollableMonthYearDropdown
+                                     />  
                                 </div>
 
                                 <div className="form-group mb-2">
