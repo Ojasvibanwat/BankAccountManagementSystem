@@ -14,7 +14,10 @@ import com.project.main.exception.ClientNotFoundException;
 import com.project.main.model.Client;
 import com.project.main.repository.ClientRepository;
 
+<<<<<<< HEAD
 //This class consists of functions performed by ADMIN
+=======
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 @Service
 @Transactional
 public class ClientService {
@@ -22,7 +25,10 @@ public class ClientService {
 	@Autowired
 	ClientRepository clientRepository;
 
+<<<<<<< HEAD
 	//This Function is for getting the list of all Clients from the Database
+=======
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 	public ArrayList<Client> getAllClients() {
 		ArrayList<Client> clientsList = (ArrayList<Client>) clientRepository.findAll();
 		try {
@@ -34,8 +40,12 @@ public class ClientService {
 		}
 		return clientsList;
 	}
+<<<<<<< HEAD
 	
 	//This Function is for getting the details of a  Client using their ClientID 
+=======
+
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 	public ResponseEntity<Client> getClientById(int id) {
 		try {
 			Client c = clientRepository.findById(id).get();
@@ -45,17 +55,26 @@ public class ClientService {
 		}
 	}
 
+<<<<<<< HEAD
 	//This Function is for registering a new client
+=======
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 	public ResponseEntity<Client> createClient(Client client) {
 		clientRepository.save(client);
 		Client c = clientRepository.findById(client.getId()).get();
 		return new ResponseEntity<Client>(c, HttpStatus.OK);
 	}
 
+<<<<<<< HEAD
 	//This Function is for updating the details of a Client using their ClientID
 	public ResponseEntity<Client> updateClient(int id, Client client) throws ClientNotFoundException {
 		Client updateClient = clientRepository.findById(id)
                 .orElseThrow(() -> new ClientNotFoundException("Client not exist with id: " + id));
+=======
+	public ResponseEntity<Client> updateClient(int id, Client client) throws ClientNotFoundException {
+		Client updateClient = clientRepository.findById(id)
+				.orElseThrow(() -> new ClientNotFoundException("Client not exist with id: " + id));
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 		try {
 			if (updateClient.getId() != 0) {
 				updateClient.setAccountNumber(client.getAccountNumber());
@@ -75,7 +94,10 @@ public class ClientService {
 		}
 	}
 
+<<<<<<< HEAD
 	//This Function is for deleting a Client 
+=======
+>>>>>>> fce318d8319955834ba24dae514202a0413b1fc2
 	public ResponseEntity<HttpStatus> deleteClient(int id) {
 		try {
 			clientRepository.deleteById(id);
