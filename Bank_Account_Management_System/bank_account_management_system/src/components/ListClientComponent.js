@@ -11,6 +11,7 @@ const ListClientComponent = () => {
         getAllClients();
     }, [])
 
+    //function to list all the clients on home page
     const getAllClients = () => {
         ClientService.getAllClients().then((response) => {
             setClients(response.data)
@@ -20,8 +21,7 @@ const ListClientComponent = () => {
         })
     }
 
-
-
+    //function to delete a client by ID
     const deleteClient = (clientId) => {
         ClientService.deleteClient(clientId).then((response) => {
             getAllClients();
@@ -31,12 +31,14 @@ const ListClientComponent = () => {
         })
 
     }
-
     return (
         <div className="container">
             <br/>
+            {/* Input field to create new client */}
             <h2 className="text-center"> Client List</h2>
             <Link to="/createClient" className="btn btn-success mb-2">Create Client</Link>
+
+            {/* Table to display all the client details */}
             <table className="table table-bordered table-striped">
                 <thead className="text-center">
                     <th> Client Id </th>
@@ -52,6 +54,7 @@ const ListClientComponent = () => {
                     {
                         clients.map(
                             client =>
+                            //displays client detail in tabular format
                                 <tr key={client.id}>
                                     <td> {client.id} </td>
                                     <td> {client.name} </td>
@@ -63,16 +66,16 @@ const ListClientComponent = () => {
                                     <td>
                                         <table>
                                             <th>
+                                                {/* button to update a client */}
                                             <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
                                             </th>
 
                                             <th>
+                                                {/* button to delete a client */}
                                             <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
 
                                             </th>
                                         </table>
-                                        
-                                        
                                     </td>
                                 </tr>
                         )

@@ -9,6 +9,7 @@ const ClientWithdraw = () => {
     const navigate = useNavigate();
     const { id } = useParams();
 
+    //function to withdraw the amount 
     const withdrawClient = (c) => {
         c.preventDefault();
 
@@ -20,6 +21,7 @@ const ClientWithdraw = () => {
 
     }
 
+    //function to delete a client by ID
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
             setOutstandingAmount(response.data.outstandingAmount)
@@ -40,9 +42,12 @@ const ClientWithdraw = () => {
                         <div className="card-body">
                             <form>
 
+                                 {/* Field to display the outstanding amount */}
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Outstanding Amount :</label><div>{outstandingAmount}</div>
                                 </div>
+
+                                {/* Input field to get the amount to be withdrawn */}
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Amount to be Withdrawn :</label>
                                     <input
@@ -56,12 +61,14 @@ const ClientWithdraw = () => {
                                     </input>
                                 </div>
                                 <table>
+
+                                    {/*Button to submit the entry*/}
                                     <th><button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button></th>
+                                    
+                                    {/* Button to cancel */}
                                     <th><Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link></th>
                                 </table>
-
                             </form>
-
                         </div>
                     </div>
                 </div>
@@ -69,5 +76,4 @@ const ClientWithdraw = () => {
         </div>
     )
 }
-
 export default ClientWithdraw

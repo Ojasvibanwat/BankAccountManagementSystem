@@ -3,16 +3,19 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ClientService from '../services/ClientService'
 
 const ClientDeposit = () => {
-    
-    const [outstandingAmount, setOutstandingAmount] = useState('')
+
+    var [outstandingAmount, setOutstandingAmount] = useState('')
     const [depositAmount, setDepositAmount] = useState('')
     const navigate = useNavigate();
     const { id } = useParams();
 
+    //function to deposit the amount 
     const depositClient = (c) => {
+
         c.preventDefault();
 
         ClientService.deposit(id, depositAmount).then((response) => {
+
             navigate(`/viewDetails/${id}`)
         }).catch(error => {
             console.log(error)
@@ -20,10 +23,12 @@ const ClientDeposit = () => {
 
     }
 
+    //function to get a client by ID
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
             setOutstandingAmount(response.data.outstandingAmount)
             outstandingAmount = response.data.outstandingAmount;
+
         }).catch(error => {
             console.log(error)
         })
@@ -40,9 +45,13 @@ const ClientDeposit = () => {
                         <div className="card-body">
                             <form>
 
+                                {/* Field to display the outstanding amount */}
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Outstanding Amount :</label><div>{outstandingAmount}</div>
                                 </div>
+
+
+                                {/* Input field to get the amount to be withdrawn */}
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Amount to be Deposited :</label>
                                     <input
@@ -56,8 +65,20 @@ const ClientDeposit = () => {
                                     </input>
                                 </div>
 
-                                <button className="btn btn-success" onClick={(c) => depositClient(c)}>Submit</button>
-                                <Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link>
+                                <table>
+                                    <th>
+                                        {/*Button to submit the entry*/}
+                                        <button className="btn btn-success" onClick={(c) => depositClient(c)}>Submit</button>
+                                    </th>
+
+                                    <th>
+                                        {/*Button to cancel*/}
+                                        <Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link>
+                                    </th>
+                                </table>
+
+
+
                             </form>
 
                         </div>
@@ -67,5 +88,4 @@ const ClientDeposit = () => {
         </div>
     )
 }
-
 export default ClientDeposit

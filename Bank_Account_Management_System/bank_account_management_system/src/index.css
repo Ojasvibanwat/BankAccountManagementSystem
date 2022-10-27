@@ -49,10 +49,18 @@ margin-right: 30px;
   
 }
 
-
+.container-about{
+  background-image: url("/home/lab-user/Desktop/BAMS/BankAccountManagementSystem/Bank_Account_Management_System/bank_account_management_system/src/bank.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+background-position: center;
+  opacity: 0.5;
+  background-attachment: fixed;
+}
 
 .client{
-  background-color: blue; /* Red */
+  background-color: rgba(86, 162, 233, 0.951);/* Red */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -61,10 +69,20 @@ margin-right: 30px;
   display: inline-block;
   font-size: 20px;
   margin-left: 375px;
- 
-  
-  
 
 }
+.content{
+  column-count: 2;
+  column-gap: 40px;
+  column-rule-style: solid;
+  column-rule-width: 1px;
+  column-rule-color: black;
+  color:black;
+  opacity: 2;
+  background-color: white;
+}
 
-
+.right{
+  color: lightgrey;
+  margin-left: 990px;
+}

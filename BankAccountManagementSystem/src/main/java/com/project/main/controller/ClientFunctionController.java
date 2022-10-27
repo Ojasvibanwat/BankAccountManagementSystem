@@ -16,7 +16,7 @@ import com.project.main.service.ClientFunctionService;
 //This Controller Class Handles all the Client Functionality API's and URL Mappings
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/bsv/clientFunction") //This is the Home URL for Client Functionality.
+@RequestMapping("/bsv") //This is the Home URL for Client Functionality.
 public class ClientFunctionController {
 
 	@Autowired

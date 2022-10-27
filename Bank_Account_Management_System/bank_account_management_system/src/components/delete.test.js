@@ -1,9 +1,10 @@
 import { render,screen,cleanup,fireEvent} from "@testing-library/react";
-
+// Importing the jest testing library
 import '@testing-library/jest-dom';
 
+// afterEach function runs after each test suite is executed
 afterEach(() => {
-    cleanup();
+    cleanup(); // Resets the DOM after each test suite
 })
 
 describe("delete component", () => {
@@ -42,20 +43,24 @@ describe("delete component", () => {
         </form>
 
     )
+
     const heading = screen.findByRole('h2');
     const button = screen.getByTestId("button");
     const table = screen.getByTestId("table");
 
+   // Test 1
     test("Rendering", () => {
         expect(heading).toBeDefined();
         expect(button).toBeInTheDocument();
         expect(table).toBeInTheDocument();
     })
 
+    //Test 2
     test("Text content", () => {
         expect(button).toHaveTextContent('Delete');
     })
 
+    //Test 3
     test("Click and submit", () => {
         fireEvent.click(button);
     })

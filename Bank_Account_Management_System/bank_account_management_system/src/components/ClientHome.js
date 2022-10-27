@@ -13,6 +13,7 @@ const ClientHome = () => {
         clientHome();
     }, [])
 
+    //Fetches client details to be updated using ID
     const clientHome = () => {
         ClientService.getClientById(id).then((response) => {
             setId(response.data.id)
@@ -29,8 +30,10 @@ const ClientHome = () => {
             <h2 className="text-center"> Client Home</h2>
 
             <div className="container-home" >
+                {/*Input field to get the client ID*/}
                 <div className="form-group mb-2">
-                    <label className="form-label"> Enter ID for client functions :</label>
+                    <label className="form-label"> Enter ID
+                     for client functions :</label>
                     <input
                         type="int"
                         placeholder="Enter id"
@@ -41,6 +44,10 @@ const ClientHome = () => {
                     >
                     </input>
                 </div>
+
+                {/*Link that directs to the client details*/}
+
+
                 <Link to={`/viewDetails/${id}`} className="client">View Details</Link>
             </div> 
            

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import ClientService from '../services/ClientService'
-import DatePicker from 'react-datepicker';  
-   
+import ClientService from '../services/ClientService' 
 import "react-datepicker/dist/react-datepicker.css";  
 
 
 const CreateClientComponent = () => {
-    console.log("In create cient component")
+    
+    console.log("In create client component")
+    // declaring the client parameters
     const [name, setName] = useState('')
     const [accountNumber, setAccountNumber] = useState('')
     const [balance, setBalance] = useState('')
@@ -19,9 +19,8 @@ const CreateClientComponent = () => {
 
     const saveOrUpdateClient = (c) => {
         c.preventDefault();
-
         const client = { name, accountNumber, balance, outstandingAmount, dateOfJoining, password }
-
+        // if the client ID exists, redirect to update function 
         if (id) {
             console.log("in if block for update")
             ClientService.updateClient(id, client).then((response) => {
@@ -31,6 +30,7 @@ const CreateClientComponent = () => {
                 console.log(error)
             })
 
+        // if the client ID doesn't exist, redirect to create function 
         } else {
             ClientService.createClient(client).then((response) => {
                 console.log(response.data)
@@ -42,6 +42,7 @@ const CreateClientComponent = () => {
 
     }
 
+    //Fetches client details to be updated using ID
     useEffect(() => {
         console.log("before getClient by id call")
         ClientService.getClientById(id).then((response) => {
@@ -59,6 +60,7 @@ const CreateClientComponent = () => {
 
     }, [id])
 
+//function to change title dynamically 
     const title = () => {
 
         if (id) {
@@ -67,7 +69,6 @@ const CreateClientComponent = () => {
             return <h2 className="text-center">Create Client</h2>
         }
     }
-
     return (
         <div>
             <br /><br />
@@ -80,6 +81,7 @@ const CreateClientComponent = () => {
                         }
                         <div className="card-body">
                             <form>
+                                 {/* Input field to get client name */}
 
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Name :</label>
@@ -94,6 +96,8 @@ const CreateClientComponent = () => {
                                     </input>
                                 </div>
 
+                                 {/* Input field to get client account number */}
+
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Account Number :</label>
                                     <input
@@ -106,6 +110,8 @@ const CreateClientComponent = () => {
                                     >
                                     </input>
                                 </div>
+
+                                 {/* Input field to get client balance */}
 
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Balance :</label>
@@ -120,6 +126,8 @@ const CreateClientComponent = () => {
                                     </input>
                                 </div>
 
+                                 {/* Input field to get client outstanding amount*/}
+
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Outstanding Amount :</label>
                                     <input
@@ -133,6 +141,8 @@ const CreateClientComponent = () => {
                                     </input>
                                 </div>
 
+                                 {/* Input field to get client Date of Joining */}
+
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Date of Joining :</label>
                                     <input
@@ -145,6 +155,9 @@ const CreateClientComponent = () => {
                                     >
                                     </input>
                                 </div>
+
+                                 {/* Input field to get client password */}
+
 
                                 <div className="form-group mb-2">
                                     <label className="form-label"> Password :</label>
@@ -161,12 +174,15 @@ const CreateClientComponent = () => {
                                 </div>
 
 
+                                 
                                 <table>
                                     <th>
+                                        {/* Button to add,update*/}
                                     <button className="btn btn-success" onClick={(c) => saveOrUpdateClient(c)}>Submit</button>
                                     </th>
                                     
                                     <th margin-right="50px">
+                                        {/* Button to cancel*/}
                                     <Link to="/clients" className="btn btn-danger">Cancel</Link>
                                     </th>
 
