@@ -1,6 +1,7 @@
 package com.project.main.controller;
 
 import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,20 +11,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.project.main.model.Client;
 import com.project.main.service.ClientFunctionService;
 
 //This Controller Class Handles all the Client Functionality API's and URL Mappings
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/bsv") //This is the Home URL for Client Functionality.
+@RequestMapping("/bsv") // This is the Home URL for Client Functionality.
 public class ClientFunctionController {
 
 	@Autowired
 	ClientFunctionService clientFunctionService;
 
-	
-	//This URL will let the Clients deposit certain amount into their account.
+	// This URL will let the Clients deposit certain amount into their account.
 	@PutMapping("deposit/{id}/{amount}")
 	public ResponseEntity<Client> deposit(@PathVariable("id") int id, @PathVariable("amount") int amount) {
 		try {
@@ -37,8 +38,7 @@ public class ClientFunctionController {
 		}
 	}
 
-	
-	//This URL will let the Clients withdraw certain amount from their account.
+	// This URL will let the Clients withdraw certain amount from their account.
 	@PutMapping("/withdraw/{id}/{amount}")
 	public ResponseEntity<Client> withdraw(@PathVariable("id") int id, @PathVariable("amount") int amount) {
 		try {
@@ -55,8 +55,7 @@ public class ClientFunctionController {
 		}
 	}
 
-	
-	//This URL will let the Clients view their account balance amount.
+	// This URL will let the Clients view their account balance amount.
 	@GetMapping("/viewBalance/{id}")
 	public ResponseEntity<Client> viewBalance(@PathVariable("id") int id) {
 		try {
@@ -67,4 +66,3 @@ public class ClientFunctionController {
 		}
 	}
 }
-

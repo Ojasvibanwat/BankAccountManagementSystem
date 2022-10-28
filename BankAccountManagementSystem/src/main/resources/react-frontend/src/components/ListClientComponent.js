@@ -33,7 +33,7 @@ const ListClientComponent = () => {
     }
     return (
         <div className="container">
-            <br/>
+            <br />
             {/* Input field to create new client */}
             <h2 className="text-center"> Client List</h2>
             <Link to="/createClient" className="btn btn-success mb-2">Create Client</Link>
@@ -54,7 +54,7 @@ const ListClientComponent = () => {
                     {
                         clients.map(
                             client =>
-                            //displays client detail in tabular format
+                                //displays client detail in tabular format
                                 <tr key={client.id}>
                                     <td> {client.id} </td>
                                     <td> {client.name} </td>
@@ -67,12 +67,12 @@ const ListClientComponent = () => {
                                         <table>
                                             <th>
                                                 {/* button to update a client */}
-                                            <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
+                                                <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
                                             </th>
 
                                             <th>
                                                 {/* button to delete a client */}
-                                            <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
+                                                <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
 
                                             </th>
                                         </table>

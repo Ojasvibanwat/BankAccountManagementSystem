@@ -38,7 +38,7 @@ const ClientViewDetails = () => {
                         <h2 className="text-center">Client Details</h2>
                         <div className="card-body">
                             <form>
-                                
+
                                 <table >
                                     <tr>
                                         {/* Field to display the name of the client */}
@@ -47,7 +47,7 @@ const ClientViewDetails = () => {
                                         </td>
                                         <td><label className="form-label">:</label></td>
                                         <td className="alignleft">
-                                        <label className="form-label">{name}</label>
+                                            <label className="form-label">{name}</label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -57,7 +57,7 @@ const ClientViewDetails = () => {
                                         </td>
                                         <td><label className="form-label">:</label></td>
                                         <td className="alignleft">
-                                        <label className="form-label">{accountNumber}</label>
+                                            <label className="form-label">{accountNumber}</label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -77,7 +77,7 @@ const ClientViewDetails = () => {
                                         </td>
                                         <td><label className="form-label">:</label></td>
                                         <td className="alignleft">
-                                        <label className="form-label">{outstandingAmount}</label>
+                                            <label className="form-label">{outstandingAmount}</label>
                                         </td>
                                     </tr>
                                 </table>

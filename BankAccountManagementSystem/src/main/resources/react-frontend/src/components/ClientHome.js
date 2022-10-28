@@ -32,7 +32,7 @@ const ClientHome = () => {
                 {/*Input field to get the client ID*/}
                 <div className="form-group mb-2">
                     <label className="form-label"> Enter ID
-                     for client functions :</label>
+                        for client functions :</label>
                     <input
                         type="int"
                         placeholder="Enter id"
@@ -48,8 +48,8 @@ const ClientHome = () => {
 
 
                 <Link to={`/viewDetails/${id}`} className="client">View Details</Link>
-            </div> 
-           
+            </div>
+
 
 
         </div>

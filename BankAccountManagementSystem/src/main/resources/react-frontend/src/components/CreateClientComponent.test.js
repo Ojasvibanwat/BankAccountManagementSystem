@@ -54,12 +54,12 @@ describe("Link Components", () => {
                 <label data-testid="date">DOJ</label>
             </div>
             <div >
-                <label data-testid="id">BasicPay</label>
+                <label data-testid="id">Password</label>
                 <input
                     data-testid="basicIP"
                     type="text"
-                    placeholder="Enter basic pay per year"
-                    name="basicPay"
+                    placeholder="Enter password"
+                    name="password"
                     className="form-control"
                     onChange={title}
                 >

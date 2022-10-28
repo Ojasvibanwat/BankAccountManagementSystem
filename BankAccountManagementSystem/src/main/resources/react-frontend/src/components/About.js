@@ -1,6 +1,7 @@
 import React from 'react'
 import '/home/lab-user/Desktop/BAMS/BankAccountManagementSystem/BankAccountManagementSystem/src/main/resources/react-frontend/src/index.js'
 import linkedin from '/home/lab-user/Desktop/BAMS/BankAccountManagementSystem/BankAccountManagementSystem/src/main/resources/react-frontend/src/linkedin.webp'
+
 const About = () => {
     return (
         <div className="container-about">

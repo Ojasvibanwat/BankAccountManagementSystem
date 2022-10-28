@@ -8,7 +8,6 @@ import com.project.main.model.Client;
    In Order to use this we have to create an interface extend CrudRepository , 
    then implement the new interface through another class                          */
 
-public interface ClientRepository extends CrudRepository<Client, Integer> 
-{
+public interface ClientRepository extends CrudRepository<Client, Integer> {
 
 }
