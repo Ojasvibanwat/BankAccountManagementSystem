@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const CreateClientComponent = () => {
     
-    console.log("In create client component")
     // declaring the client parameters
     const [name, setName] = useState('')
     const [accountNumber, setAccountNumber] = useState('')
@@ -22,9 +21,7 @@ const CreateClientComponent = () => {
         const client = { name, accountNumber, balance, outstandingAmount, dateOfJoining, password }
         // if the client ID exists, redirect to update function 
         if (id) {
-            console.log("in if block for update")
             ClientService.updateClient(id, client).then((response) => {
-                console.log("after updateClient function call")
                 navigate('/clients')
             }).catch(error => {
                 console.log(error)
@@ -33,7 +30,6 @@ const CreateClientComponent = () => {
         // if the client ID doesn't exist, redirect to create function 
         } else {
             ClientService.createClient(client).then((response) => {
-                console.log(response.data)
                 navigate('/clients');
             }).catch(error => {
                 console.log(error)
@@ -44,9 +40,7 @@ const CreateClientComponent = () => {
 
     //Fetches client details to be updated using ID
     useEffect(() => {
-        console.log("before getClient by id call")
         ClientService.getClientById(id).then((response) => {
-            console.log(response.data.id)
             setName(response.data.name)
             setAccountNumber(response.data.accountNumber)
             setBalance(response.data.balance)
@@ -64,9 +58,9 @@ const CreateClientComponent = () => {
     const title = () => {
 
         if (id) {
-            return <h2 className="text-center">Update Client</h2>
+            return <h2 className="text-center"><b>Update Client</b></h2>
         } else {
-            return <h2 className="text-center">Create Client</h2>
+            return <h2 className="text-center"><b>Create Client</b></h2>
         }
     }
     return (
@@ -178,12 +172,12 @@ const CreateClientComponent = () => {
                                 <table>
                                     <th>
                                         {/* Button to add,update*/}
-                                    <button className="btn btn-success" onClick={(c) => saveOrUpdateClient(c)}>Submit</button>
+                                    <button className="greenButton" onClick={(c) => saveOrUpdateClient(c)}>Submit</button>
                                     </th>
                                     
                                     <th margin-right="50px">
                                         {/* Button to cancel*/}
-                                    <Link to="/clients" className="btn btn-danger">Cancel</Link>
+                                    <Link to="/clients" className="orangeButton">Cancel</Link>
                                     </th>
 
                                 </table>

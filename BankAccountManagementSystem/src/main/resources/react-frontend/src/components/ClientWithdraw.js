@@ -25,20 +25,20 @@ const ClientWithdraw = () => {
     useEffect(() => {
         ClientService.getClientById(id).then((response) => {
             setOutstandingAmount(response.data.outstandingAmount)
-            outstandingAmount = response.data.outstandingAmount;
         }).catch(error => {
             console.log(error)
         })
 
-    }, [])
+    }, [id])
 
     return (
         <div>
-            <br /><br />
+            <br /><br />            <br/>
+
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        <h2 className="text-center">Withdraw</h2>
+                        <h2 className="text-center"><b>Withdraw</b></h2>
                         <div className="card-body">
                             <form>
 
@@ -66,10 +66,10 @@ const ClientWithdraw = () => {
                                 <table>
 
                                     {/*Button to submit the entry*/}
-                                    <th><button className="btn btn-success" onClick={(c) => withdrawClient(c)}>Submit</button></th>
+                                    <th><button className="greenButton" onClick={(c) => withdrawClient(c)}>Submit</button></th>
 
                                     {/* Button to cancel */}
-                                    <th><Link to={`/viewDetails/${id}`} className="btn btn-danger">Cancel</Link></th>
+                                    <th><Link to={`/viewDetails/${id}`} className="orangeButton">Cancel</Link></th>
                                 </table>
                             </form>
                         </div>

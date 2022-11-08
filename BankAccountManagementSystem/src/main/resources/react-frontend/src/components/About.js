@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div className="container-about">
             <br />
-            <h2 className="text-center"> About Us</h2>
+            <h2 className="text-center"> <b>About Us</b></h2>
 
             <div className="content">
                 <br />
@@ -25,25 +25,29 @@ const About = () => {
                 <center><h4>Contact us</h4></center>
                 <center>
                     <table>
-                        <tr>
-                            <th><a href="https://www.linkedin.com/in/dharshika-s-789a481b8/" target="_blank" rel="noreferrer">
-                                <img src={linkedin} alt="LinkedIn Dharshika" height={"60px"} /> </a></th>
-                            <th><a href="https://www.linkedin.com/in/kshitij-patne-83721a19b" target="_blank" rel="noreferrer">
-                                <img src={linkedin} alt="LinkedIn Kshitij" height={"60px"} /> </a></th>
-                            <th><a href="https://www.linkedin.com/in/prsrohit-035739186" target="_blank" rel="noreferrer">
-                                <img src={linkedin} alt="LinkedIn Raghava" height={"60px"} /> </a></th>
-                            <th><a href="https://www.linkedin.com/in/yukta-saindane-53b0641b7" target="_blank" rel="noreferrer">
-                                <img src={linkedin} alt="LinkedIn Yukta" height={"60px"} /> </a></th>
-                            <th><a href="https://www.linkedin.com/in/ojasvibanwat/" target="_blank" rel="noreferrer">
-                                <img src={linkedin} alt="LinkedIn Ojasvi" height={"60px"} /> </a></th>
-                        </tr>
-                        <tr>
-                            <td>Dharshika</td>
-                            <td>Kshitij</td>
-                            <td>Raghava</td>
-                            <td>Yukta</td>
-                            <td>Ojasvi</td>
-                        </tr>
+                        <thead className="alignCenter">
+                            <tr>
+                                <th><a href="https://www.linkedin.com/in/dharshika-s-789a481b8/" target="_blank" rel="noreferrer">
+                                    <img src={linkedin} alt="LinkedIn Dharshika" height={"60px"} /> </a></th>
+                                <th><a href="https://www.linkedin.com/in/kshitij-patne-83721a19b" target="_blank" rel="noreferrer">
+                                    <img src={linkedin} alt="LinkedIn Kshitij" height={"60px"} /> </a></th>
+                                <th><a href="https://www.linkedin.com/in/prsrohit-035739186" target="_blank" rel="noreferrer">
+                                    <img src={linkedin} alt="LinkedIn Raghava" height={"60px"} /> </a></th>
+                                <th><a href="https://www.linkedin.com/in/yukta-saindane-53b0641b7" target="_blank" rel="noreferrer">
+                                    <img src={linkedin} alt="LinkedIn Yukta" height={"60px"} /> </a></th>
+                                <th><a href="https://www.linkedin.com/in/ojasvibanwat/" target="_blank" rel="noreferrer">
+                                    <img src={linkedin} alt="LinkedIn Ojasvi" height={"60px"} /> </a></th>
+                            </tr>
+                        </thead>
+                        <tbody className="alignCenter">
+                            <tr>
+                                <td>Dharshika</td>
+                                <td>Kshitij</td>
+                                <td>Raghava</td>
+                                <td>Yukta</td>
+                                <td>Ojasvi</td>
+                            </tr>
+                        </tbody>
 
                     </table>
                     <br />

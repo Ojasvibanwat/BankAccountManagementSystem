@@ -3,7 +3,7 @@ import axios from 'axios'
 const CLIENT_BASE_URL = 'http://localhost:8081/bsv'
 
 class ClientService {
-    
+
     //Axios call to get all clients
     getAllClients() {
         return axios.get(CLIENT_BASE_URL + '/clients');
@@ -29,7 +29,7 @@ class ClientService {
     deleteClient(clientId) {
         return axios.delete(CLIENT_BASE_URL + '/deleteClient/' + clientId);
     }
-    
+
     //Axios call to view details of a client by ID
     viewDetails(clientId, client) {
         return axios.get(CLIENT_BASE_URL + '/viewDetails/' + clientId, client);
@@ -41,12 +41,12 @@ class ClientService {
 
     //Axios call to deposit the amount using ID and amount
     deposit(clientId, amount) {
-        return axios.put(CLIENT_BASE_URL + '/deposit/' + clientId + '/'+ amount);
+        return axios.put(CLIENT_BASE_URL + '/deposit/' + clientId + '/' + amount);
     }
 
     //Axios call to withdraw the amount using ID and amount
     withdraw(clientId, amount) {
-        return axios.put(CLIENT_BASE_URL + '/withdraw/' + clientId + '/'+ amount);
+        return axios.put(CLIENT_BASE_URL + '/withdraw/' + clientId + '/' + amount);
     }
 
 }

@@ -15,7 +15,6 @@ const ListClientComponent = () => {
     const getAllClients = () => {
         ClientService.getAllClients().then((response) => {
             setClients(response.data)
-            console.log(response.data);
         }).catch(error => {
             console.log(error);
         })
@@ -35,8 +34,9 @@ const ListClientComponent = () => {
         <div className="container">
             <br />
             {/* Input field to create new client */}
-            <h2 className="text-center"> Client List</h2>
-            <Link to="/createClient" className="btn btn-success mb-2">Create Client</Link>
+            <h2 className="text-center"> <b>Client List</b></h2>
+          
+            <Link to="/createClient" className="greenButton mb-2">Create Client</Link>
 
             {/* Table to display all the client details */}
             <table className="table table-bordered table-striped">
@@ -67,12 +67,12 @@ const ListClientComponent = () => {
                                         <table>
                                             <th>
                                                 {/* button to update a client */}
-                                                <Link className="btn btn-primary" to={`/updateClient/${client.id}`} >Update</Link>
+                                                <Link className="blueButton" to={`/updateClient/${client.id}`} >Update</Link>
                                             </th>
 
                                             <th>
                                                 {/* button to delete a client */}
-                                                <button className="btn btn-danger" onClick={() => deleteClient(client.id)}> Delete</button>
+                                                <button className="orangeButton" onClick={() => deleteClient(client.id)}>Delete</button>
 
                                             </th>
                                         </table>
@@ -82,6 +82,8 @@ const ListClientComponent = () => {
                     }
                 </tbody>
             </table>
+            <br/>
+
         </div>
     )
 }

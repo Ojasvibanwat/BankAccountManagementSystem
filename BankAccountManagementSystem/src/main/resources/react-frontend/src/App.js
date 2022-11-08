@@ -26,8 +26,7 @@ function App() {
             <Route path="withdraw/:id" element={<ClientWithdraw />}></Route>
             <Route path="/viewDetails/:id" element={<ClientViewDetails />}></Route>
             <Route path="/clientHome" element={<ClientHome />}></Route>
-            <Route path="/about" element={<About/>}></Route>
-
+            <Route path="/about" element={<About />}></Route>
           </Routes>
         </div>
         <FooterComponent />

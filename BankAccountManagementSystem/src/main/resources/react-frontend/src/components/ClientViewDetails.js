@@ -19,23 +19,20 @@ const ClientViewDetails = () => {
             setAccountNumber(response.data.accountNumber)
             setBalance(response.data.balance)
             setOutstandingAmount(response.data.outstandingAmount)
-            name = response.data.name;
-            accountNumber = response.data.accountNumber;
-            balance = response.data.balance;
-            outstandingAmount = response.data.outstandingAmount;
         }).catch(error => {
             console.log(error)
         })
 
-    }, [])
+    }, [id])
 
     return (
         <div>
-            <br /><br />
+            <br /><br />            <br/>
+
             <div className="container">
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
-                        <h2 className="text-center">Client Details</h2>
+                        <h2 className="text-center"><b>Client Details</b></h2>
                         <div className="card-body">
                             <form>
 
@@ -85,18 +82,18 @@ const ClientViewDetails = () => {
                                 <table>
                                     {/*Button to deposit the amount*/}
                                     <th>
-                                        <Link to={`/deposit/${id}`} className="btn btn-success">Deposit</Link>
+                                        <Link to={`/deposit/${id}`} className="greenButton">Deposit</Link>
                                     </th>
 
                                     {/*Button to withdraw the amount*/}
                                     <th>
-                                        <Link to={`/withdraw/${id}`} className="btn btn-danger">Withdraw</Link>
+                                        <Link to={`/withdraw/${id}`} className="orangeButton">Withdraw</Link>
 
                                     </th>
 
                                     {/*Button that redirects to the Client Home Page*/}
                                     <th>
-                                        <Link to="/clientHome" className="btn btn-info">Client Home</Link>
+                                        <Link to="/clientHome" className="blueButton">Client Home</Link>
 
                                     </th>
                                 </table>
